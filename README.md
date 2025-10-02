@@ -13,7 +13,27 @@ The project represents my most sophisticated work so far, covering **data prepro
 
 This README is structured as a **narrative** of the steps I took, with visualizations at each stage to explain the decisions and techniques I used.
 
+
 ---
+
+## 🌳 Decision Tree Visualization (Model Interpretability)
+
+To better understand how tree-based models (like Random Forests or Gradient Boosted Trees) make predictions,  
+I visualized one of the learned **decision trees**.  
+
+<img src="./images/output.svg" width="600"/>  
+
+Insights:  
+- The first split is on **Coupler_System**, showing its strong influence on the target.  
+- **YearMade** is a major factor — older vs newer machinery strongly affects the predicted outcome.  
+- **ProductSize** further refines the split, distinguishing between smaller and larger equipment.  
+- The leaf nodes reflect predicted values and variance (`squared_error`), providing a clear sense of how the model partitions the feature space.  
+
+This interpretability step was crucial to validate that the model was **using domain-relevant features** rather than overfitting on random IDs.  
+
+
+---
+
 
 ## 🔍 1. Exploratory Data Analysis (EDA)
 
@@ -58,6 +78,7 @@ To further understand how the most important features affected predictions, I pl
 Additionally, I generated **SHAP-style explanations** to understand feature contributions at the instance level.
 
 <img src="./images/output9.png" width="500"/>  
+
 
 ---
 
