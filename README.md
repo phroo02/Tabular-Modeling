@@ -1,9 +1,11 @@
 # 🏆 Kaggle Tabular Data Competition – My Solution (Top 3% Finish)
 
-![Leaderboard Screenshot](./images/leaderboard.png)
+
 
 This repository documents my full workflow for a Kaggle **tabular data competition**, where I achieved a **Top 3% leaderboard ranking** (Public LB score: 0.2309).  
-The project represents my most sophisticated work so far, covering **data preprocessing, exploratory analysis, feature engineering, boosting models, neural networks, stacked ensembling, and interpretability**.
+The project represents my most sophisticated work so far, covering **data preprocessing, exploratory analysis, feature engineering, boosting models, neural networks, stacked ensembling, and interpretability**.  
+
+📖 This project was inspired by and developed as part of my study of *Deep Learning for Coders with fastai & PyTorch* by Jeremy Howard and Sylvain Gugger, which emphasizes reproducible, competitive workflows and interpretability in machine learning.  
 
 ---
 
@@ -17,8 +19,8 @@ This README is structured as a **narrative** of the steps I took, with visualiza
 
 I started with **distribution analysis** of the categorical and numeric features. For example, the `ProductSize` variable showed strong class imbalance, while `YearMade` revealed historical patterns in the dataset.
 
-![Product Size Distribution](./images/output6.png)
-![Year Made Distribution](./images/output7.png)
+<img src="./images/output6.png" width="400"/>  
+<img src="./images/output7.png" width="400"/>  
 
 - Identified missing values in categorical features like `ProductSize`.  
 - Observed skewed year distribution, requiring binning and transformations.  
@@ -29,7 +31,7 @@ I started with **distribution analysis** of the categorical and numeric features
 
 To avoid redundant features, I used **hierarchical clustering** and correlation plots to understand dependencies between features.
 
-![Hierarchical Clustering of Features](./images/output5.png)
+<img src="./images/output5.png" width="500"/>  
 
 This step helped identify collinear features and guided feature selection for models like linear/logistic regressors, which are sensitive to multicollinearity.
 
@@ -39,7 +41,7 @@ This step helped identify collinear features and guided feature selection for mo
 
 Next, I trained early LightGBM/XGBoost models to check **feature importance**.
 
-![Feature Importance – Baseline](./images/output4.png)
+<img src="./images/output4.png" width="500"/>  
 
 Key findings:
 - `YearMade`, `ProductSize`, and `Coupler_System` were the strongest predictors.  
@@ -51,14 +53,11 @@ Key findings:
 
 To further understand how the most important features affected predictions, I plotted **Partial Dependence Plots (PDPs)**.
 
-![Partial Dependence](./images/output8.png)
-
-- `YearMade`: newer machines correlated with higher target values.  
-- `ProductSize`: larger equipment influenced outcomes strongly.  
+<img src="./images/output8.png" width="600"/>  
 
 Additionally, I generated **SHAP-style explanations** to understand feature contributions at the instance level.
 
-![SHAP Contributions](./images/output9.png)
+<img src="./images/output9.png" width="500"/>  
 
 ---
 
@@ -87,11 +86,11 @@ I benchmarked several models:
 
 Learning rate finder example:
 
-![Learning Rate Finder](./images/output10.png)
+<img src="./images/output10.png" width="400"/>  
 
 Training curves:
 
-![Training Loss Curve](./images/output3.png)
+<img src="./images/output3.png" width="400"/>  
 
 ---
 
@@ -110,7 +109,7 @@ This reduced variance and improved generalization.
 
 After stacking, I re-evaluated feature importances:
 
-![Final Feature Importance](./images/output.png)
+<img src="./images/output.png" width="500"/>  
 
 - `YearMade` and `ProductSize` consistently dominated across all boosting models.  
 - Cross-validation confirmed their predictive stability.  
@@ -134,9 +133,6 @@ After stacking, I re-evaluated feature importances:
 
 ---
 
-## 🚀 How to Run
-
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/yourusername/kaggle-tabular-competition.git
-   cd kaggle-tabular-competition
+## 🙏 Credits
+Special thanks to Jeremy Howard and Sylvain Gugger, authors of Deep Learning for Coders with fastai & PyTorch.
+Their book heavily influenced my approach to designing reproducible ML pipelines, competitive modeling strategies, and interpretability workflows.
